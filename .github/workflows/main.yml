@@ -90,7 +90,7 @@ jobs:
           $installerPath = "$env:TEMP\tailscale.msi"
           
           Invoke-WebRequest -Uri $tsUrl -OutFile $installerPath
-          Start-Process -FilePath "msiexec.exe" -ArgumentList @("/i", ""$installerPath"", "/quiet", "/norestart") -Wait -NoNewWindow
+          Start-Process -FilePath "msiexec.exe" -ArgumentList @("/i", "`"$installerPath`"", "/quiet", "/norestart") -Wait -NoNewWindow
           Remove-Item $installerPath -Force
           
           # Wait for installation to complete
